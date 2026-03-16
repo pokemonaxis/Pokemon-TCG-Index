@@ -1,0 +1,15 @@
+{
+  "name": "PTCG Pro Tracker",
+  "short_name": "PTCG Pro",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
