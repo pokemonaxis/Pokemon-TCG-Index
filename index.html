@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AxisTCG - Competitive Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">AxisTCG</div>
+        <nav>
+            <button onclick="showView('dashboard')">Dashboard</button>
+            <button onclick="showView('add-match')">Registrar Partida</button>
+            <button onclick="showView('history')">Historial</button>
+        </nav>
+    </header>
+
+    <main id="app-content">
+        <section id="dashboard" class="view active">
+            <h2>Resumen Global</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Partidas</h3>
+                    <p id="total-matches">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Win Rate</h3>
+                    <p id="global-winrate">0%</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="add-match" class="view">
+            <h2>Registrar Enfrentamiento</h2>
+            <form id="match-form">
+                <div class="form-group">
+                    <label for="my-deck">Tu Mazo (Arquetipo)</label>
+                    <input type="text" id="my-deck" required placeholder="Ej: Charizard ex">
+                </div>
+                <div class="form-group">
+                    <label for="opp-deck">Mazo Rival</label>
+                    <input type="text" id="opp-deck" required placeholder="Ej: Chien-Pao ex">
+                </div>
+                <div class="form-group">
+                    <label for="format">Formato</label>
+                    <select id="format" onchange="toggleGamesInput()">
+                        <option value="BO1">BO1 (Mejor de 1)</option>
+                        <option value="BO3">BO3 (Mejor de 3)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="games-input">
+                    <label>Resultado(s)</label>
+                    <input type="text" id="match-results" required placeholder="Ej: W, L, T o WLW" pattern="[WLTwlt]{1,3}" style="text-transform: uppercase;">
+                    <small>Ingresa la secuencia exacta (W, L, T). Ej: WLW</small>
+                </div>
+                <button type="submit" class="btn-primary">Guardar Partida</button>
+            </form>
+        </section>
+
+        <section id="history" class="view">
+            <h2>Historial de Partidas</h2>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tu Mazo</th>
+                        <th>Rival</th>
+                        <th>Formato</th>
+                        <th>Secuencia</th>
+                        <th>Resultado Global</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
